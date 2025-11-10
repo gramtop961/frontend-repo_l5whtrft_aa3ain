@@ -1,28 +1,39 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Location from './components/Location';
+import Counseling from './components/Counseling';
+import Gallery from './components/Gallery';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Footer() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <footer className="bg-gray-50 py-10">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-sm text-gray-500">
+            © {new Date().getFullYear()} Grace Fellowship Church. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4 text-sm text-gray-600">
+            <a href="#home" className="hover:text-indigo-600">Home</a>
+            <a href="#location" className="hover:text-indigo-600">Location</a>
+            <a href="#gallery" className="hover:text-indigo-600">Sunday Docs</a>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    </footer>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen bg-white antialiased">
+      <Navbar />
+      <main className="pt-24">
+        <Hero />
+        <Counseling />
+        <Location />
+        <Gallery />
+      </main>
+      <Footer />
+    </div>
+  );
+}
